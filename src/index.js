@@ -9,4 +9,4 @@ import { createGallery } from "./js/createGallery";
 import { PixabayAPI } from "./js/PixabayApi";
 
 
-
+// ------
