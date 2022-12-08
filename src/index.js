@@ -16,6 +16,10 @@ let page = 1;
 async function onFormSubmit(e) {
     e.preventDefault();
 
+    setTimeout(() => {
+        refs.submitBtn.blur();
+    }, 200);
+
     const {
     elements: { searchQuery },
     } = e.currentTarget;
@@ -51,6 +55,10 @@ Notify.success(`Hooray! We found ${data.totalHits} images.`)
 
 async function onLoadMore(e) {
     e.preventDefault();
+
+    setTimeout(() => {
+        refs.loadMoreBtn.blur();
+    }, 200);
 
     const data = await pixabayApi.getImagesByQuery(page);
     lightbox.refresh();

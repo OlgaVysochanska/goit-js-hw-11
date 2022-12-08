@@ -36,6 +36,10 @@ input.search-input:focus-visible {
     border-color: transparent;
 }
 
+.submit-btn:focus {
+    box-shadow: 0 0 5px 5px palegoldenrod;
+}
+
 .load-more {
     padding-left: 30px;
     padding-right: 30px;
@@ -53,6 +57,10 @@ input.search-input:focus-visible {
     background-color: darkgreen;
     border-color: transparent;
     border-radius: 5px;
+}
+
+.load-more:focus {
+    box-shadow: 0 0 5px 5px palegoldenrod;
 }
 
 .load-more[disabled] {
