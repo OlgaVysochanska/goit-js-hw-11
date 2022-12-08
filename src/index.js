@@ -46,16 +46,20 @@ Notify.success(`Hooray! We found ${data.totalHits} images.`)
     refs.gallery.innerHTML = markup;
 
     lightbox.refresh();
-    page += 1;
-
+   
+    if (page < Math.ceil(data.totalHits / 40)) {
     refs.loadMoreBtn.removeAttribute('disabled');
+    } 
+    if (page >= Math.ceil(data.totalHits / 40)) {
+    refs.loadMoreBtn.setAttribute('disabled', true);
+    }
     refs.searchForm.reset();
     refs.searchInput.blur();
 }
 
 async function onLoadMore(e) {
-    e.preventDefault();
-
+    page += 1;
+   
     setTimeout(() => {
         refs.loadMoreBtn.blur();
     }, 200);
@@ -68,11 +72,10 @@ const markup = createGallery(data.hits);
     page += 1;
 
     const totalPage = await data.totalHits / 40;
-    if (page > totalPage) {
+    if (page >= totalPage) {
         Notify.info("We're sorry, but you've reached the end of search results.");
         refs.loadMoreBtn.setAttribute('disabled', true);
     }
-
     await smoothScroll();
 }
 
