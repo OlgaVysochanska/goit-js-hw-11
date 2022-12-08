@@ -38,6 +38,10 @@ async function onFormSubmit(e) {
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     return;
     }
+
+    if (data.hits.length > 6) {
+refs.upArrow.classList.remove('unvisible');
+    }
     
 
 Notify.success(`Hooray! We found ${data.totalHits} images.`)
@@ -48,7 +52,7 @@ Notify.success(`Hooray! We found ${data.totalHits} images.`)
     lightbox.refresh();
    
     if (page < Math.ceil(data.totalHits / 40)) {
-    refs.loadMoreBtn.removeAttribute('disabled');
+        refs.loadMoreBtn.removeAttribute('disabled');
     } 
     if (page >= Math.ceil(data.totalHits / 40)) {
     refs.loadMoreBtn.setAttribute('disabled', true);
