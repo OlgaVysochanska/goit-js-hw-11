@@ -1,5 +1,9 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+body {
+    background-color: rgb(133, 250, 250);
+}
+
 .search-form {
     display: flex;
     gap: 10px;
@@ -10,14 +14,17 @@
 }
 
 input.search-input:focus-visible {
-    outline-color: darkred;
+    outline-color: palegoldenrod;
     border-radius: 3px;
+    box-shadow: 0 0 5px 5px palegoldenrod;
 }
 
 .search-input {
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn {
