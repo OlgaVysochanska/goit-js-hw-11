@@ -6,7 +6,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import { refs } from "./js/refs";
 import { fetchImages } from "./js/fetchImages";
 import { createGallery } from "./js/createGallery";
-import { PixabayAPI } from ".src/js/PixabayApi";
+import { PixabayAPI } from "./js/PixabayAPI";
 
 const pixabayApi = new PixabayAPI();
 
