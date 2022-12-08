@@ -8,5 +8,6 @@ import { fetchImages } from "./js/fetchImages";
 import { createGallery } from "./js/createGallery";
 import { PixabayAPI } from "./js/PixabayApi";
 
+const pixabayApi = new PixabayAPI();
 
-// ------
+pixabayApi.getImagesByQuery();
