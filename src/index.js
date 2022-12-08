@@ -40,7 +40,7 @@ async function onFormSubmit(e) {
     }
 
     if (data.hits.length > 6) {
-refs.upArrow.classList.remove('unvisible');
+refs.upArrow.classList.remove('invisible');
     }
     
 
