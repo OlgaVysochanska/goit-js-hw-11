@@ -10,4 +10,36 @@ import { PixabayAPI } from "./js/PixabayAPI";
 
 const pixabayApi = new PixabayAPI();
 
-pixabayApi.getImagesByQuery();
+
+async function onFormSubmit(e) {
+    e.preventDefault();
+
+    const {
+    elements: { searchQuery },
+    } = e.currentTarget;
+
+    const searchValue = searchQuery.value.trim().toLowerCase();
+   
+  if (!searchValue) {
+    Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+    return;
+  }
+    
+    pixabayApi.query = searchValue;
+    const data = await pixabayApi.getImagesByQuery();
+
+    if (data.hits.length === 0) {
+        Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+    return;
+    }
+    lightbox.refresh();
+    const markup = createGallery(data.hits);
+    refs.gallery.innerHTML = markup;
+
+    
+
+}
+
+var lightbox = new SimpleLightbox('.gallery a', { captionsData: "alt", captionPosition: "bottom", captionDelay: 250 });
+
+refs.searchForm.addEventListener("submit", onFormSubmit);

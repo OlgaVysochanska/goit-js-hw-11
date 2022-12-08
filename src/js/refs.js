@@ -1,5 +1,5 @@
 export const refs = {
-    searchInput: document.querySelector('.search-input'),
+    searchForm: document.querySelector('.search-form'),
     submitBtn: document.querySelector('.submit-btn'),
     gallery: document.querySelector('.gallery'),
     loadMoreBtn: document.querySelector('.load-more'),
